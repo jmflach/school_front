@@ -1,5 +1,5 @@
-import Layout from "../components/Layout";
-import StudentList from "../components/StudentList";
+import Layout from "../components/layout/Layout";
+import StudentList from "../components/students/StudentList";
 
 const DUMMY_DATA = [
   {

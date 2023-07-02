@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Students from "./pages/Students";
 import Home from "./pages/Home";
-import NavigationBar from "./components/NavigationBar";
-import Footer from "./components/Footer";
+import NavigationBar from "./components/layout/NavigationBar";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
