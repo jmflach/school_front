@@ -28,7 +28,7 @@ function FullStudentItem(props) {
             </button>
           </div>
           <div className={classes.actions}>
-            <button className="btn" onClick={props.onClose}>
+            <button className="btn" onClick={props.editStudent}>
               Editar
             </button>
           </div>

@@ -5,11 +5,12 @@
     background-color: white;
     padding: 1rem;
     text-align: center;
-    width: 70rem;
+    width: 70%;
+    /* height: 70%; */
     z-index: 10;
     position: fixed;
-    top: 20vh;
-    left: calc(50% - 35rem);
+    top: 10vh;
+    left: calc(15%); 
   }
 
 .grid{
