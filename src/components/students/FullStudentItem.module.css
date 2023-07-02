@@ -5,17 +5,17 @@
     background-color: white;
     padding: 1rem;
     text-align: center;
-    width: 50rem;
+    width: 70rem;
     z-index: 10;
     position: fixed;
     top: 20vh;
-    left: calc(50% - 25rem);
+    left: calc(50% - 35rem);
   }
 
 .grid{
     display: grid;
-    align-items: center;
-    grid-template-columns: 2fr 4fr;
+    align-items: top;
+    grid-template-columns: 8fr 16fr 1fr;
     column-gap: 5px;
 }
 
@@ -32,7 +32,7 @@
   
   .image {
     width: 80%;
-    height: 15rem;
+    height: 25rem;
     overflow: hidden;
     /* border-top-right-radius: 6px;
       border-top-left-radius: 6px; */
@@ -75,3 +75,17 @@
     background-color: #e4e2ff;
   }
   
+
+  .close {
+    background:none;
+    border:none;
+    margin:0;
+    width: fit-content;
+    height: fit-content;
+    padding:0;  
+    cursor: pointer;
+    font-size: 45px;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(45deg);
+  }

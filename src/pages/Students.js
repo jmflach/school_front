@@ -1,6 +1,8 @@
 import Layout from "../components/layout/Layout";
 import StudentList from "../components/students/StudentList";
 
+import classes from "./Students.module.css";
+
 const DUMMY_DATA = [
   {
     id: "1",
@@ -47,8 +49,13 @@ const DUMMY_DATA = [
 function Students() {
   return (
     <Layout>
-      <h1>Lista de Estudantes</h1>
-      <StudentList students={DUMMY_DATA}/>
+      <div className={classes.container}>
+        <h1>Lista de Estudantes</h1>
+        <div className={classes.actions}>
+          <button>Adicionar Novo</button>
+        </div>
+      </div>
+      <StudentList students={DUMMY_DATA} />
     </Layout>
   );
 }

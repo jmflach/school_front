@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 4fr 4fr;
+    column-gap: 5px;
+  }
+
+.actions {
+  padding: 1.5rem;
+  text-align: right;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  color: #001277;
+  border: 1px solid #080077;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #e4e2ff;
+}
