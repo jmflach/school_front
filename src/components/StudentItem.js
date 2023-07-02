@@ -11,8 +11,7 @@ function StudentItem(props) {
             <img src={props.student.foto} alt={props.student.nome} />
           </div>
           <div className={classes.content}>
-            <h3 align="left">{props.student.nome + " " + props.student.sobrenome}</h3>
-            <h3 align="left">{props.student.endereço}</h3>
+            <h2 align="left">{props.student.nome + " " + props.student.sobrenome}</h2>
             <h3 align="left">{props.student.email}</h3>
           </div>
           <div className={classes.actions}>
