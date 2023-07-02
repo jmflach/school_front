@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 import Layout from "../components/layout/Layout";
 import StudentList from "../components/students/StudentList";
+import AddNewStudent from "../components/students/AddNewStudent";
+import Backdrop from "../components/ui/Backdrop";
 
 import classes from "./Students.module.css";
 
@@ -47,15 +51,27 @@ const DUMMY_DATA = [
 ];
 
 function Students() {
+
+  const [showAddNewStudent, setShowAddNewStudent] = useState(false);
+  
+  function showAddNewStudentHandler() {
+    setShowAddNewStudent(true);
+  }
+
+  function closeAddNewStudentHandler() {
+    setShowAddNewStudent(false);
+  }
   return (
     <Layout>
       <div className={classes.container}>
         <h1>Lista de Estudantes</h1>
         <div className={classes.actions}>
-          <button>Adicionar Novo</button>
+          <button onClick={showAddNewStudentHandler}>Adicionar Novo</button>
         </div>
       </div>
       <StudentList students={DUMMY_DATA} />
+      {showAddNewStudent? <AddNewStudent onClose={closeAddNewStudentHandler}/> : null}
+      {showAddNewStudent? <Backdrop onClick={closeAddNewStudentHandler}/> : null}
     </Layout>
   );
 }
