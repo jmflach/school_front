@@ -7,15 +7,7 @@ function StudentForm(props) {
   const handleRegistration = (data) => console.log(data);
 
   if (props.editing) {
-    console.log("editing");
-    const defaultValues = {
-      nome: "teste",
-      sobrenome: "testão",
-    };
-    console.log(defaultValues);
-    console.log(props.student);
-    const st = props.student;
-    reset((formValues) => st);
+    reset((formValues) => props.student);
   }
 
   return (
@@ -53,8 +45,13 @@ function StudentForm(props) {
         <label htmlFor="foto">Foto</label>
         <input type="url" required id="foto" {...register("foto")} />
       </div>
-      <div className={classes.actions}>
-        <button>Adicionar</button>
+      <div className={classes.buttons}>
+        <div className={classes.actions}>
+          <button className="btn" type="button" onClick={props.onCancel}>Cancelar</button>
+        </div>
+        <div className={classes.actions}>
+          <button>Enviar</button>
+        </div>
       </div>
     </form>
   );

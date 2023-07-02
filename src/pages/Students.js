@@ -70,7 +70,7 @@ function Students() {
         </div>
       </div>
       <StudentList students={DUMMY_DATA} />
-      {showAddNewStudent? <AddNewStudent onClose={closeAddNewStudentHandler}/> : null}
+      {showAddNewStudent? <AddNewStudent onCancel={closeAddNewStudentHandler}/> : null}
       {showAddNewStudent? <Backdrop onClick={closeAddNewStudentHandler}/> : null}
     </Layout>
   );

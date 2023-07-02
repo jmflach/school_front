@@ -10,7 +10,7 @@ function EditStudent(props) {
     <div className={classes.container}>
       <Card>
         <h1>Editar estudante</h1>
-        <StudentForm editing='true' student={props.student}/>
+        <StudentForm editing='true' student={props.student} {...props}/>
       </Card>
     </div>
   );

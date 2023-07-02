@@ -26,6 +26,7 @@ function StudentItem(props) {
   }
 
   function closeEditStudentHandler() {
+    console.log("FECHANDO")
     setEditStudent(false);
   }
 
@@ -53,7 +54,7 @@ function StudentItem(props) {
       {showFullStudent? <FullStudentItem student={props.student} onClose={closeShowStudentHandler} editStudent={editStudentHandler}/> : null}
       {showFullStudent? <Backdrop onClick={closeShowStudentHandler}/> : null}
 
-      {showEditStudent? <EditStudent student={props.student} onClose={closeEditStudentHandler} editStudent={editStudentHandler} /> : null}
+      {showEditStudent? <EditStudent student={props.student} onCancel={closeEditStudentHandler} /> : null}
       {showEditStudent? <Backdrop onClick={closeEditStudentHandler}/> : null}
 
     </li>
