@@ -23,7 +23,7 @@ function FullStudentItem(props) {
         </div>
         <div className={classes.gridbutton}>
           <div className={classes.actions}>
-            <button className="btn" onClick={props.onClose}>
+            <button className="btn" onClick={props.onDelete}>
               Excluir
             </button>
           </div>

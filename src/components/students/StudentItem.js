@@ -26,8 +26,15 @@ function StudentItem(props) {
   }
 
   function closeEditStudentHandler() {
-    console.log("FECHANDO")
     setEditStudent(false);
+  }
+
+  function deleteStudentHandler() {
+    fetch("http://localhost:8080/student/delete/" + props.student["id"], {
+      method: "DELETE"
+    });
+    setShowFullStudent(false);
+    //window.location.reload();
   }
 
   return (
@@ -51,7 +58,7 @@ function StudentItem(props) {
         </div>
       </Card>
       
-      {showFullStudent? <FullStudentItem student={props.student} onClose={closeShowStudentHandler} editStudent={editStudentHandler}/> : null}
+      {showFullStudent? <FullStudentItem student={props.student} onDelete={deleteStudentHandler} editStudent={editStudentHandler}/> : null}
       {showFullStudent? <Backdrop onClick={closeShowStudentHandler}/> : null}
 
       {showEditStudent? <EditStudent student={props.student} onCancel={closeEditStudentHandler} /> : null}
