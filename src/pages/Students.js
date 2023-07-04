@@ -33,7 +33,17 @@ function Students() {
 
   useEffect(() => {
     console.log("FETCHING");
-    fetch("http://localhost:8080/students")
+
+    const token = localStorage.getItem('token');
+
+    //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvYW9mbGFjaEBnbWFpbC5jb20iLCJpYXQiOjE2ODg1MDQzMjksImV4cCI6MTY4ODUwNzkyOX0.tqh_AudyGj4kqZTwB0KIDy9wt_B1wuMQi4WZvKJhAnY"
+
+    console.log(token);
+
+    fetch("http://localhost:8080/students", {
+      headers: {
+        "Authorization": "Bearer " + token,
+      },})
       .then((response) => {
         return response.json();
       })

@@ -45,3 +45,20 @@
   padding: 0 1rem;
   margin-left: 0.5rem;
 }
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #fdfdff;
+  color: rgb(7, 0, 104);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #c8c5f8;
+  border-color: #270083;
+}

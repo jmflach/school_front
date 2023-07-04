@@ -1,5 +1,3 @@
-import NavigationBar from "./components/layout/NavigationBar";
-import Footer from "./components/layout/Footer";
 import RoutesApp from "./RoutesApp";
 
 import classes from "./App.module.css";
@@ -10,9 +8,9 @@ function App() {
   return (
     <div className={classes.body}>
       <AuthProvider>
-        <NavigationBar />
+        
         <RoutesApp />
-        <Footer />
+        
       </AuthProvider>
     </div>
   );

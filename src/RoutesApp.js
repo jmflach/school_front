@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useContext } from "react";
 
+import NavigationBar from "./components/layout/NavigationBar";
+import Footer from "./components/layout/Footer";
 import Students from "./pages/Students";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
@@ -14,7 +16,13 @@ function PrivatePage(props){
   console.log("Routing");
 
   if (authenticated){
-    return props.page;
+    return (
+      <div>
+      <NavigationBar />
+      {props.page}
+      <Footer />
+      </div>
+      );
   }
   else {
     return <Navigate to="/signin" replace />;
