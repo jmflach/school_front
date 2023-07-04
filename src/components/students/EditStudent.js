@@ -9,7 +9,6 @@ function EditStudent(props) {
   async function editStudentHandler(student) {
     console.log(student);
     console.log("sentind post");
-    console.log("http://localhost:8080/student/update/" + student["id"]);
     await fetch("http://localhost:8080/student/update/" + student["id"], {
       method: "POST",
       body: JSON.stringify(student),
