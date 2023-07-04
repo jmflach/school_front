@@ -42,6 +42,8 @@ function Students() {
         setLoadedStudents(data);
         console.log("loaded");
         console.log(data);
+      }).catch((error) => {
+        console.log(error)
       });
   }, [reloadList]);
 
