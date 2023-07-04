@@ -1,23 +1,19 @@
-import { Routes, Route } from "react-router-dom";
-
-import Students from "./pages/Students";
-import Home from "./pages/Home";
 import NavigationBar from "./components/layout/NavigationBar";
 import Footer from "./components/layout/Footer";
+import RoutesApp from "./RoutesApp";
 
 import classes from "./App.module.css";
+
+import { AuthProvider } from "./context/authContext";
 
 function App() {
   return (
     <div className={classes.body}>
-      <NavigationBar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/students" element={<Students />} />
-      </Routes>
-
-      <Footer />
+      <AuthProvider>
+        <NavigationBar />
+        <RoutesApp />
+        <Footer />
+      </AuthProvider>
     </div>
   );
 }
