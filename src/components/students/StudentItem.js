@@ -33,6 +33,8 @@ function StudentItem(props) {
   async function deleteStudentHandler() {
     await fetch("http://localhost:8080/student/delete/" + props.student["id"], {
       method: "DELETE"
+    }).catch((error) => {
+      console.log(error)
     });
     setShowFullStudent(false);
 

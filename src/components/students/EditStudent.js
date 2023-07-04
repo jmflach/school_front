@@ -16,6 +16,8 @@ function EditStudent(props) {
       headers: {
         "Content-Type": "application/json",
       },
+    }).catch((error) => {
+      console.log(error)
     });
     props.onCancel();
     props.reload();

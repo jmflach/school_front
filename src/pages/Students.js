@@ -50,7 +50,11 @@ function Students() {
   
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <Layout>
+        <h1>Loading...</h1>
+      </Layout>
+    );
   } else {
     return (
       <Layout>
