@@ -19,10 +19,20 @@ function Students() {
     setShowAddNewStudent(false);
   }
 
+  const [reloadList, setReloadList] = useState(false);
+
+  function reloadHandler() {
+    console.log("RELOADED!")
+    setReloadList(!reloadList);
+  }
+
   const [isLoading, setIsLoading] = useState(true);
   const [loadedStudents, setLoadedStudents] = useState([]);
 
+  console.log("LOADING STUDENTS PAGE");
+
   useEffect(() => {
+    console.log("FETCHING");
     fetch("http://localhost:8080/students")
       .then((response) => {
         return response.json();
@@ -33,7 +43,9 @@ function Students() {
         console.log("loaded");
         console.log(data);
       });
-  }, []);
+  }, [reloadList]);
+
+  
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -46,9 +58,9 @@ function Students() {
             <button onClick={showAddNewStudentHandler}>Adicionar Novo</button>
           </div>
         </div>
-        <StudentList students={loadedStudents} />
+        <StudentList students={loadedStudents} reload={reloadHandler}/>
         {showAddNewStudent ? (
-          <AddNewStudent onCancel={closeAddNewStudentHandler} />
+          <AddNewStudent onCancel={closeAddNewStudentHandler} reload={reloadHandler} />
         ) : null}
         {showAddNewStudent ? (
           <Backdrop onClick={closeAddNewStudentHandler} />

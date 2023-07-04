@@ -5,10 +5,11 @@ import StudentForm from "./StudentForm";
 import classes from "./AddNewStudent.module.css";
 
 function AddNewStudent(props) {
-  function addStudentHandler(student) {
+
+  async function addStudentHandler(student) {
     console.log(student);
-    console.log("sentind post");
-    fetch("http://localhost:8080/students/add", {
+    console.log("sending post");
+    await fetch("http://localhost:8080/students/add", {
       method: "POST",
       body: JSON.stringify(student),
       headers: {
@@ -16,6 +17,7 @@ function AddNewStudent(props) {
       },
     });
     props.onCancel();
+    props.reload();
   }
 
   return (

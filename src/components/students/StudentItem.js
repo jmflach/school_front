@@ -27,14 +27,16 @@ function StudentItem(props) {
 
   function closeEditStudentHandler() {
     setEditStudent(false);
+    props.reload();
   }
 
-  function deleteStudentHandler() {
-    fetch("http://localhost:8080/student/delete/" + props.student["id"], {
+  async function deleteStudentHandler() {
+    await fetch("http://localhost:8080/student/delete/" + props.student["id"], {
       method: "DELETE"
     });
     setShowFullStudent(false);
-    //window.location.reload();
+
+    props.reload();
   }
 
   return (
