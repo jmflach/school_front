@@ -9,17 +9,16 @@ import classes from "./App.module.css";
 
 function App() {
   return (
-    <div>
-      <body className={classes.body}>
-        <NavigationBar />
+    <body className={classes.body}>
+      <NavigationBar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/students" element={<Students />} />
-        </Routes>
-      </body>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/students" element={<Students />} />
+      </Routes>
+
       <Footer />
-    </div>
+    </body>
   );
 }
 
