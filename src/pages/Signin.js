@@ -1,18 +1,42 @@
-import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
 
-import { Context } from "../context/authContext";
+import Card from "../components/ui/Card";
 
-// import classes from "./Signin.module.css";
+import classes from "./Signin.module.css";
 
-function Signin() {
+function Signin(props) {
+  const { register, reset, handleSubmit } = useForm();
+  const handleRegistration = (data) => {
+    console.log(data);
+    // props.onSubmit(data);
+  };
 
-  const { authenticated, signinHandler } = useContext(Context);
+  if (props.editing) {
+    reset((formValues) => props.student);
+  }
 
-  console.log(authenticated);
-
-  return <div>
-    <button onClick={signinHandler}>Entrar</button>
-  </div>;
+  return (
+    <Card>
+      <div className={classes.container}>
+      <h2>Login</h2>
+      <form className={classes.form} onSubmit={handleSubmit(handleRegistration)}>
+      <div className={classes.control}>
+        <label htmlFor="email">E-mail</label>
+        <input type="email" required id="email" {...register("email")} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="senha">Senha</label>
+        <input type="password" required id="senha" {...register("senha")} />
+      </div>
+      <div className={classes.buttons}>
+        <div className={classes.actions}>
+          <button>Enviar</button>
+        </div>
+      </div>
+    </form>
+      </div>
+    </Card>
+  );
 }
 
 export default Signin;
