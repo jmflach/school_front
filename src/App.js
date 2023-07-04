@@ -9,7 +9,7 @@ import classes from "./App.module.css";
 
 function App() {
   return (
-    <body className={classes.body}>
+    <div className={classes.body}>
       <NavigationBar />
 
       <Routes>
@@ -18,7 +18,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </body>
+    </div>
   );
 }
 
