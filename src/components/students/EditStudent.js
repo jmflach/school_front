@@ -6,11 +6,11 @@ import classes from "./EditStudent.module.css";
 
 
 function EditStudent(props) {
-  function editStudentHandler(student) {
+  async function editStudentHandler(student) {
     console.log(student);
     console.log("sentind post");
     console.log("http://localhost:8080/student/update/" + student["id"]);
-    fetch("http://localhost:8080/student/update/" + student["id"], {
+    await fetch("http://localhost:8080/student/update/" + student["id"], {
       method: "POST",
       body: JSON.stringify(student),
       headers: {
@@ -18,6 +18,7 @@ function EditStudent(props) {
       },
     });
     props.onCancel();
+    props.reload();
   }
 
   return (

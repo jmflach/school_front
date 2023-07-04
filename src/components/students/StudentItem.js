@@ -63,7 +63,7 @@ function StudentItem(props) {
       {showFullStudent? <FullStudentItem student={props.student} onDelete={deleteStudentHandler} editStudent={editStudentHandler}/> : null}
       {showFullStudent? <Backdrop onClick={closeShowStudentHandler}/> : null}
 
-      {showEditStudent? <EditStudent student={props.student} onCancel={closeEditStudentHandler} /> : null}
+      {showEditStudent? <EditStudent student={props.student} onCancel={closeEditStudentHandler} reload={props.reload}/> : null}
       {showEditStudent? <Backdrop onClick={closeEditStudentHandler}/> : null}
 
     </li>
