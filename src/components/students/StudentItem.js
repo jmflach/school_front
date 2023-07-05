@@ -73,6 +73,7 @@ function StudentItem(props) {
         <FullStudentItem
           student={props.student}
           onDelete={deleteStudentHandler}
+          onClose={closeShowStudentHandler}
           editStudent={editStudentHandler}
         />
       ) : null}

@@ -24,7 +24,12 @@ function StudentForm(props) {
   }
 
   function handleRegistration(data) {
-    encodeImageFileAsURL(data);
+    if (! props.editing) {
+      encodeImageFileAsURL(data);
+    }
+    else {
+      props.onSubmit(data);
+    }
   }
 
   if (props.editing) {
@@ -62,10 +67,13 @@ function StudentForm(props) {
           {...register("nascimento")}
         />
       </div>
-      <div className={classes.control}>
-        <label htmlFor="foto">Foto *</label>
-        <input type="file" required id="foto" {...register("foto")} />
-      </div>
+        {!props.editing ? 
+        <div className={classes.control}>
+          <label htmlFor="foto">Foto *</label>
+          <input type="file" required id="foto" {...register("foto")} />
+        </div>
+        :
+        <div></div>}
       <div className={classes.buttons}>
         <div className={classes.actions}>
           <button className="btn" type="button" onClick={props.onCancel}>
