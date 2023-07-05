@@ -5,6 +5,13 @@ import classes from "./StudentForm.module.css";
 function StudentForm(props) {
   const { register, reset, handleSubmit } = useForm();
   const handleRegistration = (data) => {
+    console.log(data);
+
+    // foto_real is an array of files. This line gets only the first file.
+    data['foto_real'] = data['foto_real'][0];
+
+    console.log(data);
+
     props.onSubmit(data);
   };
 
@@ -46,6 +53,10 @@ function StudentForm(props) {
       <div className={classes.control}>
         <label htmlFor="foto">Foto *</label>
         <input type="url" required id="foto" {...register("foto")} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="foto_real">Foto2 *</label>
+        <input type="file" required id="foto_real" {...register("foto_real")} />
       </div>
       <div className={classes.buttons}>
         <div className={classes.actions}>
