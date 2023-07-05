@@ -9,11 +9,11 @@ function StudentForm(props) {
   const [data, setData] = useState(null);
 
   function encodeImageFileAsURL(data) {
-    var file = data.foto_real[0];
+    var file = data.foto[0];
     var reader = new FileReader();
 
     reader.onloadend = function () {
-      data.foto_real = reader.result;
+      data.foto = reader.result;
       setData(data);
     };
     reader.readAsDataURL(file);
@@ -64,11 +64,7 @@ function StudentForm(props) {
       </div>
       <div className={classes.control}>
         <label htmlFor="foto">Foto *</label>
-        <input type="url" required id="foto" {...register("foto")} />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="foto_real">Foto *</label>
-        <input type="file" required id="foto_real" {...register("foto_real")} />
+        <input type="file" required id="foto" {...register("foto")} />
       </div>
       <div className={classes.buttons}>
         <div className={classes.actions}>
