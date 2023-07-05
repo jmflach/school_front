@@ -6,27 +6,26 @@ import classes from "./StudentForm.module.css";
 
 function StudentForm(props) {
   const { register, reset, handleSubmit } = useForm();
-  const [image, setImage] = useState();
+  const [data, setData] = useState(null);
 
-  function encodeImageFileAsURL(element) {
-    var file = element[0];
+  function encodeImageFileAsURL(data) {
+    var file = data.foto_real[0];
     var reader = new FileReader();
-    reader.onloadend = function() {
-      console.log('RESULT', reader.result)
-      setImage(reader.result);
-    }
+
+    reader.onloadend = function () {
+      data.foto_real = reader.result;
+      setData(data);
+    };
     reader.readAsDataURL(file);
   }
 
-  const handleRegistration = (data) => {
-    encodeImageFileAsURL(data.foto_real);
-
-    data.foto_real = image;
-    
-    console.log(data);
-    // setFile(URL.createObjectURL(data.foto_real[0]));
+  if (data !== null) {
     props.onSubmit(data);
-  };
+  }
+
+  function handleRegistration(data) {
+    encodeImageFileAsURL(data);
+  }
 
   if (props.editing) {
     reset((formValues) => props.student);
