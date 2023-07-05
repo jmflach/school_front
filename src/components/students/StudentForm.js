@@ -1,17 +1,30 @@
+import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 
 import classes from "./StudentForm.module.css";
 
 function StudentForm(props) {
   const { register, reset, handleSubmit } = useForm();
+  const [image, setImage] = useState();
+
+  function encodeImageFileAsURL(element) {
+    var file = element[0];
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      console.log('RESULT', reader.result)
+      setImage(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
+
   const handleRegistration = (data) => {
+    encodeImageFileAsURL(data.foto_real);
+
+    data.foto_real = image;
+    
     console.log(data);
-
-    // foto_real is an array of files. This line gets only the first file.
-    data['foto_real'] = data['foto_real'][0];
-
-    console.log(data);
-
+    // setFile(URL.createObjectURL(data.foto_real[0]));
     props.onSubmit(data);
   };
 
@@ -55,7 +68,7 @@ function StudentForm(props) {
         <input type="url" required id="foto" {...register("foto")} />
       </div>
       <div className={classes.control}>
-        <label htmlFor="foto_real">Foto2 *</label>
+        <label htmlFor="foto_real">Foto *</label>
         <input type="file" required id="foto_real" {...register("foto_real")} />
       </div>
       <div className={classes.buttons}>
@@ -67,6 +80,7 @@ function StudentForm(props) {
         <div className={classes.actions}>
           <button>Enviar</button>
         </div>
+        {/* <img src={file} /> */}
       </div>
     </form>
   );
