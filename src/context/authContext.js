@@ -54,13 +54,15 @@ function AuthProvider(props) {
     navigate("/signin");
   }
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
   return (
     <Context.Provider
-      value={{ authenticated, signinHandler, signupHandler, logoutHandler }}
+      value={{
+        loading,
+        authenticated,
+        signinHandler,
+        signupHandler,
+        logoutHandler,
+      }}
     >
       {props.children}
     </Context.Provider>

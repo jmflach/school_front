@@ -10,7 +10,7 @@ import Card from "../components/ui/Card";
 import classes from "./Signup.module.css";
 
 function Signup(props) {
-  const { register, reset, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const { signupHandler } = useContext(Context);
 

@@ -14,7 +14,11 @@ import { Context } from "./context/authContext";
 import classes from "./App.module.css";
 
 function PrivatePage(props) {
-  const { authenticated } = useContext(Context);
+  const { loading, authenticated } = useContext(Context);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   if (authenticated) {
     return (
