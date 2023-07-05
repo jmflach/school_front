@@ -8,12 +8,14 @@ import classes from "./EditStudent.module.css";
 function EditStudent(props) {
   async function editStudentHandler(student) {
     console.log(student);
+    const token = localStorage.getItem('token');
     console.log("sentind post");
-    await fetch("http://localhost:8080/student/update/" + student["id"], {
+    await fetch("http://localhost:8080/students/update/" + student["id"], {
       method: "POST",
       body: JSON.stringify(student),
       headers: {
         "Content-Type": "application/json",
+        "Authorization": "Bearer " + token,
       },
     }).catch((error) => {
       console.log(error)

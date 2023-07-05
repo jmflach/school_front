@@ -31,11 +31,18 @@ function StudentItem(props) {
   }
 
   async function deleteStudentHandler() {
-    await fetch("http://localhost:8080/student/delete/" + props.student["id"], {
-      method: "DELETE"
+    console.log("deleting")
+    console.log(props.student)
+    const token = localStorage.getItem('token');
+    await fetch("http://localhost:8080/students/delete/" + props.student["id"], {
+      method: "DELETE",
+      headers: {
+        "Authorization": "Bearer " + token,
+      }
     }).catch((error) => {
       console.log(error)
     });
+
     setShowFullStudent(false);
 
     props.reload();

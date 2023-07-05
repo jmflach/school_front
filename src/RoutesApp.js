@@ -11,13 +11,15 @@ import Signup from "./pages/Signup";
 
 import { Context } from "./context/authContext";
 
+import classes from './App.module.css'
+
 function PrivatePage(props){
   const { authenticated } = useContext(Context);
   console.log("Routing");
 
   if (authenticated){
     return (
-      <div>
+      <div className={classes.body}>
       <NavigationBar />
       {props.page}
       <Footer />

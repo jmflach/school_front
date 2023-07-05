@@ -1,4 +1,5 @@
 import RoutesApp from "./RoutesApp";
+import Footer from "./components/layout/Footer";
 
 import classes from "./App.module.css";
 
@@ -8,9 +9,7 @@ function App() {
   return (
     <div className={classes.body}>
       <AuthProvider>
-        
         <RoutesApp />
-        
       </AuthProvider>
     </div>
   );
