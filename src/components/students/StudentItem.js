@@ -8,10 +8,9 @@ import classes from "./StudentItem.module.css";
 import EditStudent from "./EditStudent";
 
 function StudentItem(props) {
-  
   const [showFullStudent, setShowFullStudent] = useState(false);
   const [showEditStudent, setEditStudent] = useState(false);
-  
+
   function showStudentHandler() {
     setShowFullStudent(true);
   }
@@ -31,16 +30,17 @@ function StudentItem(props) {
   }
 
   async function deleteStudentHandler() {
-    console.log("deleting")
-    console.log(props.student)
-    const token = localStorage.getItem('token');
-    await fetch("http://localhost:8080/students/delete/" + props.student["id"], {
-      method: "DELETE",
-      headers: {
-        "Authorization": "Bearer " + token,
+    const token = localStorage.getItem("token");
+    await fetch(
+      "http://localhost:8080/students/delete/" + props.student["id"],
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       }
-    }).catch((error) => {
-      console.log(error)
+    ).catch((error) => {
+      console.log(error);
     });
 
     setShowFullStudent(false);
@@ -68,13 +68,24 @@ function StudentItem(props) {
           </div>
         </div>
       </Card>
-      
-      {showFullStudent? <FullStudentItem student={props.student} onDelete={deleteStudentHandler} editStudent={editStudentHandler}/> : null}
-      {showFullStudent? <Backdrop onClick={closeShowStudentHandler}/> : null}
 
-      {showEditStudent? <EditStudent student={props.student} onCancel={closeEditStudentHandler} reload={props.reload}/> : null}
-      {showEditStudent? <Backdrop onClick={closeEditStudentHandler}/> : null}
+      {showFullStudent ? (
+        <FullStudentItem
+          student={props.student}
+          onDelete={deleteStudentHandler}
+          editStudent={editStudentHandler}
+        />
+      ) : null}
+      {showFullStudent ? <Backdrop onClick={closeShowStudentHandler} /> : null}
 
+      {showEditStudent ? (
+        <EditStudent
+          student={props.student}
+          onCancel={closeEditStudentHandler}
+          reload={props.reload}
+        />
+      ) : null}
+      {showEditStudent ? <Backdrop onClick={closeEditStudentHandler} /> : null}
     </li>
   );
 }

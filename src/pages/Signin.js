@@ -16,13 +16,10 @@ function Signin(props) {
   const { signinHandler } = useContext(Context);
 
   const handleRegistration = (data) => {
-    console.log(data);
     signinHandler(data);
-    // props.onSubmit(data);
   };
 
-  function signUpHandler()
-  {
+  function signUpHandler() {
     navigate("/signup");
   }
 
@@ -49,7 +46,9 @@ function Signin(props) {
           </div>
           <div className={classes.buttons}>
             <div className={classes.actions}>
-              <button type="button" onClick={signUpHandler}>Cadastrar</button>
+              <button type="button" onClick={signUpHandler}>
+                Cadastrar
+              </button>
             </div>
             <div className={classes.actions}>
               <button>Entrar</button>

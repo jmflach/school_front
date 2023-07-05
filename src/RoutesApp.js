@@ -11,22 +11,20 @@ import Signup from "./pages/Signup";
 
 import { Context } from "./context/authContext";
 
-import classes from './App.module.css'
+import classes from "./App.module.css";
 
-function PrivatePage(props){
+function PrivatePage(props) {
   const { authenticated } = useContext(Context);
-  console.log("Routing");
 
-  if (authenticated){
+  if (authenticated) {
     return (
       <div className={classes.body}>
-      <NavigationBar />
-      {props.page}
-      <Footer />
+        <NavigationBar />
+        {props.page}
+        <Footer />
       </div>
-      );
-  }
-  else {
+    );
+  } else {
     return <Navigate to="/signin" replace />;
   }
 }

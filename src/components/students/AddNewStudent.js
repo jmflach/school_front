@@ -5,20 +5,18 @@ import StudentForm from "./StudentForm";
 import classes from "./AddNewStudent.module.css";
 
 function AddNewStudent(props) {
-
   async function addStudentHandler(student) {
-    console.log(student);
-    const token = localStorage.getItem('token');
-    console.log("sending post");
+    const token = localStorage.getItem("token");
+
     await fetch("http://localhost:8080/students/add", {
       method: "POST",
       body: JSON.stringify(student),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + token,
+        Authorization: "Bearer " + token,
       },
     }).catch((error) => {
-      console.log(error)
+      console.log(error);
     });
     props.onCancel();
     props.reload();

@@ -19,7 +19,9 @@ function FullStudentItem(props) {
             <h3 align="left">Endereço: {props.student.endereço}</h3>
             <h3 align="left">Data de Nascimento: {props.student.nascimento}</h3>
           </div>
-          <button className={classes.close} onClick={props.onClose}>+</button>
+          <button className={classes.close} onClick={props.onClose}>
+            +
+          </button>
         </div>
         <div className={classes.gridbutton}>
           <div className={classes.actions}>

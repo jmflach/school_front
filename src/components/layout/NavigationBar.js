@@ -7,7 +7,7 @@ import classes from "./NavigationBar.module.css";
 import { Context } from "../../context/authContext";
 
 function NavigationBar() {
-  const { logoutHandler } = useContext(Context);  
+  const { logoutHandler } = useContext(Context);
 
   return (
     <header className={classes.header}>

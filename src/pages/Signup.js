@@ -15,13 +15,10 @@ function Signup(props) {
   const { signupHandler } = useContext(Context);
 
   const handleRegistration = (data) => {
-    console.log(data);
     signupHandler(data);
-    // props.onSubmit(data);
   };
 
-  function signinHandler()
-  {
+  function signinHandler() {
     navigate("/signin");
   }
 
@@ -43,11 +40,18 @@ function Signup(props) {
           </div>
           <div className={classes.control}>
             <label htmlFor="senha">Senha</label>
-            <input type="password" required id="senha" {...register("password")} />
+            <input
+              type="password"
+              required
+              id="senha"
+              {...register("password")}
+            />
           </div>
           <div className={classes.buttons}>
             <div className={classes.actions}>
-              <button type="button" onClick={signinHandler}>Voltar</button>
+              <button type="button" onClick={signinHandler}>
+                Voltar
+              </button>
             </div>
             <div className={classes.actions}>
               <button>Cadastrar</button>

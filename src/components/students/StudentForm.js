@@ -5,7 +5,6 @@ import classes from "./StudentForm.module.css";
 function StudentForm(props) {
   const { register, reset, handleSubmit } = useForm();
   const handleRegistration = (data) => {
-    console.log(data);
     props.onSubmit(data);
   };
 

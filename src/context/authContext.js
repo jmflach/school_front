@@ -21,11 +21,7 @@ function AuthProvider(props) {
   }, []);
 
   async function signinHandler(authData) {
-    console.log("signing in");
-
     const data = await authenticate(authData);
-
-    console.log(data);
 
     if (data.message === "User authenticated successfully") {
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -38,12 +34,8 @@ function AuthProvider(props) {
   }
 
   async function signupHandler(authData) {
-    console.log("signing up");
-  
     const data = await signup(authData);
-  
-    console.log(data);
-  
+
     if (data.message === "User authenticated successfully") {
       localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("token", data.access_token);
@@ -56,7 +48,6 @@ function AuthProvider(props) {
   }
 
   function logoutHandler() {
-    console.log("Loging out");
     setAuthenticated(false);
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -68,12 +59,12 @@ function AuthProvider(props) {
   }
 
   return (
-    <Context.Provider value={{ authenticated, signinHandler, signupHandler, logoutHandler }}>
+    <Context.Provider
+      value={{ authenticated, signinHandler, signupHandler, logoutHandler }}
+    >
       {props.children}
     </Context.Provider>
   );
 }
-
-
 
 export { Context, AuthProvider };
