@@ -27,8 +27,9 @@ function useAuth() {
       localStorage.setItem("token", data.access_token);
       setAuthenticated(true);
       navigate("/home");
-    } else {
-      alert("Email ou senha incorretos.");
+    } 
+    else {
+      alert("Informações incorretas. Erro: " + JSON.stringify(data));
     }
   }
 

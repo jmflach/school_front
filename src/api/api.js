@@ -34,6 +34,9 @@ async function post(endPoint, data) {
       response = data;
     })
     .catch((error) => {
+      response = { 
+        "message" : "Can not communicate with server"
+      };
       console.log(error);
     });
 
