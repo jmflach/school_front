@@ -4,7 +4,7 @@ Single Page Application (front-end) para uma escola, utilizando **ReactJS**. Nes
 
 ## Projeto
 
-Para realizar este projeto, foi decidido que a aplicação seria uma aplicação de uma única página (Single Page Application), com o nosso código lidando com as mudanças de páginas internas.
+Para realizar este projeto, foi decidido que a aplicação seria uma aplicação de uma única página (Single Page Application), com o nosso código lidando com as mudanças de páginas internas. Também foi decidido que seriam utilizadas o mínimo de bibliotecas externas possíveis.
 
 ### Signin e Signup
 
@@ -18,7 +18,7 @@ Podemos utilizar os links presentes no cabeçalho para navegar entre as páginas
 
 ### Estudantes
 
-A página **students** é a principal da aplicação. Nela, somos apresentados com uma lista de todos os estudantes cadastrados. Para adicionar um novo aluno, clicamos no botão "Adicionar Novo" e então, um card é aberto com um formulário para inserirmos as informações do novo aluno. Foi decidido que a foto do aluno será um arquivo enviado pelo formulário, e não um link para uma imagem, já que em uma escola, provavelmente a foto do aluno estaria no computador local, e não em outro servidor.
+A página **students** é a principal da aplicação. Nela, somos apresentados com uma lista de todos os estudantes cadastrados. Para adicionar um novo aluno, clicamos no botão "Adicionar Novo" e então, um card é aberto com um formulário para inserirmos as informações do novo aluno. Foi decidido que a foto do aluno será um arquivo enviado pelo formulário, e não um link para uma imagem, já que em uma escola, provavelmente a foto do aluno estaria no computador local, e não em outro servidor. Para isso, codificamos a imagem em **base64** para enviar como texto juntamente com as outras informações do aluno. Para mais informações sobre o armazenamento da foto, ver documentação do back-end.
 
 Para ver detalhes de um estudante, podemos clicar no botão "Ver" ao lado do estudante. Um card irá abrir mostrando todas as informações de um determinado estudante. Como já temos as informações de todos os alunos carregadas, foi decidido não realizar uma nova requisição para pegar as informações do aluno neste momento. Porém, esse endpoint existe no back-end e poderia ser utilizado em outro componente da aplicação.
 
